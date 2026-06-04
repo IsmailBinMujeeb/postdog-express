@@ -1,6 +1,6 @@
 {
   "name": "@postdog/express",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "No more copy pasting endpoints in bruno just run your server.",
   "main": "index.js",
   "scripts": {
