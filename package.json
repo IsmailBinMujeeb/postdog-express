@@ -1,0 +1,28 @@
+{
+  "name": "@postdog/express",
+  "version": "1.0.0",
+  "description": "No more copy pasting endpoints in bruno just run your server.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd ./test_api && npm run dev",
+    "changeset": "changeset"
+  },
+  "keywords": [],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "@IsmailBinMujeeb (IsmailBinMujeeb@gmail.com)",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IsmailBinMujeeb/postdog-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IsmailBinMujeeb/postdog-express/issues"
+  },
+  "homepage": "https://github.com/IsmailBinMujeeb/postdog-express#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0"
+  }
+}
