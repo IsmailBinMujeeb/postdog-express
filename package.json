@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "No more copy pasting endpoints in bruno just run your server.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "dev": "cd ./test_api && npm run dev",
     "changeset": "changeset"
@@ -24,5 +25,8 @@
   "homepage": "https://github.com/IsmailBinMujeeb/postdog-express#readme",
   "devDependencies": {
     "@changesets/cli": "^2.31.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
