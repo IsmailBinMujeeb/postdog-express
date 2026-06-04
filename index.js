@@ -8,7 +8,7 @@ import {
   requestFileTemplate,
 } from "./utils/templates.js";
 
-export function postdog(router, { prefix = "", name = "" }) {
+export function Postdog(router, { prefix = "", name = "" }) {
   (async () => {
     const endpoints = endpointsGenerator(router.stack, prefix);
     const projectName = name || "postdog";

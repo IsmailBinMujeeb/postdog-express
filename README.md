@@ -23,7 +23,7 @@ In each route file, import `postdog` and wrap the router before exporting it. Pa
 ```js
 // routes/auth.js
 import { Router } from "express";
-import { postdog } from "@postdog/express";
+import { Postdog } from "@postdog/express";
 
 const router = Router();
 
@@ -31,7 +31,7 @@ router.post("/register", (req, res) => {
   res.status(201).json({ success: true });
 });
 
-export default postdog(router, { name: "collections", prefix: "/auth" });
+export default Postdog(router, { name: "collections", prefix: "/auth" });
 ```
 
 ### 2. Mount the router normally
