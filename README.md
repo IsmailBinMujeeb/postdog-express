@@ -18,7 +18,7 @@ npm i @postdog/express
 
 ### 1. Wrap your routers
 
-In each route file, import `postdog` and wrap the router before exporting it. Pass a `name` for the collection and an optional `prefix` that matches where you mount the router.
+In each route file, import `postdog` and wrap the router before exporting it. Pass a `name` for the collection and an optional `mount` that matches where you mount the router.
 
 ```js
 // routes/auth.js
@@ -31,7 +31,7 @@ router.post("/register", (req, res) => {
   res.status(201).json({ success: true });
 });
 
-export default Postdog(router, { name: "collections", prefix: "/auth" });
+export default Postdog(router, { name: "collections", mount: "/auth" });
 ```
 
 ### 2. Mount the router normally
@@ -54,12 +54,12 @@ That's it. When your server starts, `@postdog/express` collects every route regi
 
 ## How it works
 
-`postdog(router, options)` is a thin wrapper around an Express `Router`. It intercepts route registrations (GET, POST, PUT, DELETE, etc.) and records the method, path, and prefix. When the server boots, it writes a Bruno collection file you can import or reference directly.
+`postdog(router, options)` is a thin wrapper around an Express `Router`. It intercepts route registrations (GET, POST, PUT, DELETE, etc.) and records the method, path, and mounted path. When the server boots, it writes a Bruno collection file you can import or reference directly.
 
 | Option   | Type     | Description                                              |
 |----------|----------|----------------------------------------------------------|
 | `name`   | `string` | Name of the Bruno collection to create                   |
-| `prefix` | `string` | Route prefix used when mounting the router (e.g. `/auth`) |
+| `mount`  | `string` | Route mount used when mounting the router (e.g. `/auth`) |
 
 ---
 

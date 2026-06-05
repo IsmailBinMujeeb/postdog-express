@@ -8,9 +8,9 @@ import {
   requestFileTemplate,
 } from "./utils/templates.js";
 
-export function Postdog(router, { prefix = "", name = "" }) {
+export function Postdog(router, { mount = "", name = "" }) {
   (async () => {
-    const endpoints = endpointsGenerator(router.stack, prefix);
+    const endpoints = endpointsGenerator(router.stack, mount);
     const projectName = name || "postdog";
 
     const collectionPath = path.join(process.cwd(), `./${projectName}`);
@@ -43,7 +43,7 @@ export function Postdog(router, { prefix = "", name = "" }) {
         const requestName =
           ep.path !== "/"
             ? ep.path
-            : `/${ep.methods[0]}_${prefix.replace("/", "")}`;
+            : `/${ep.methods[0]}_${mount.replace("/", "")}`;
         const requestPath = `${collectionPath}${ep.folder}${requestName}.yml`;
 
         if (!(await isFileExist(requestPath)) || ep.path === "/") {
@@ -52,7 +52,7 @@ export function Postdog(router, { prefix = "", name = "" }) {
             requestFileTemplate(
               ep.path.replace("/", ""),
               ep.methods[0],
-              `${prefix}${ep.path}`
+              `${mount}${ep.path}`
             )
           );
         }
